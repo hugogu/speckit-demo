@@ -57,22 +57,22 @@
 
 ### Implementation for US1
 
-- [ ] T011 [P] [US1] 创建游戏状态 composable: `composables/useGameState.ts`
+- [x] T011 [P] [US1] 创建游戏状态 composable: `composables/useGameState.ts`
   - 管理 `GameState` 响应式状态
   - 提供 `startNewGame(size, difficulty)` 方法
-- [ ] T012 [P] [US1] 创建难度选择组件: `components/setup/DifficultySelector.vue`
+- [x] T012 [P] [US1] 创建难度选择组件: `components/setup/DifficultySelector.vue`
   - 三个难度选项: 简单/中等/困难
   - 触摸友好的按钮 (≥44×44px)
-- [ ] T013 [P] [US1] 创建棋盘大小选择组件: `components/setup/SizeSelector.vue`
+- [x] T013 [P] [US1] 创建棋盘大小选择组件: `components/setup/SizeSelector.vue`
   - 三个尺寸选项: 4×4/6×6/9×9
   - 清晰的视觉提示
-- [ ] T014 [US1] 创建游戏设置面板: `components/setup/GameSetup.vue` (依赖 T012, T013)
+- [x] T014 [US1] 创建游戏设置面板: `components/setup/GameSetup.vue` (依赖 T012, T013)
   - 组合难度和大小选择器
   - "开始游戏" 按钮
-- [ ] T015 [P] [US1] 创建基础按钮组件: `components/ui/BaseButton.vue`
+- [x] T015 [P] [US1] 创建基础按钮组件: `components/ui/BaseButton.vue`
   - 支持不同尺寸和变体
   - 触摸目标 ≥44×44px
-- [ ] T016 [US1] 创建首页布局: `pages/index.vue` (依赖 T011, T014)
+- [x] T016 [US1] 创建首页布局: `pages/index.vue` (依赖 T011, T014)
   - 显示游戏设置或游戏棋盘
   - 响应式布局
 
