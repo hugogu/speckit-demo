@@ -33,17 +33,17 @@
 
 **⚠️ CRITICAL**: UI 组件开发必须在此阶段完成后开始
 
-- [ ] T006 [P] 创建类型定义: `types/sudoku.ts`
+- [x] T006 [P] 创建类型定义: `types/sudoku.ts`
   - `BoardSize`, `Difficulty`, `Cell`, `SudokuBoard`, `GameState`
-- [ ] T007 [P] 实现数独求解器: `utils/sudoku-solver.ts`
+- [x] T007 [P] 实现数独求解器: `utils/sudoku-solver.ts`
   - 回溯算法验证解的唯一性
   - 行/列/宫格规则验证
-- [ ] T008 实现数独生成器: `utils/sudoku-generator.ts` (依赖 T007)
+- [x] T008 实现数独生成器: `utils/sudoku-generator.ts` (依赖 T007)
   - 生成完整有效解
   - 按难度移除数字 (Easy 30-40%, Medium 45-55%, Hard 60-70%)
   - 支持 4×4, 6×6, 9×9 三种尺寸
-- [ ] T009 [P] 编写生成器单元测试: `tests/unit/sudoku-generator.test.ts`
-- [ ] T010 [P] 编写求解器单元测试: `tests/unit/sudoku-solver.test.ts`
+- [x] T009 [P] 编写生成器单元测试: `tests/unit/sudoku-generator.test.ts`
+- [x] T010 [P] 编写求解器单元测试: `tests/unit/sudoku-solver.test.ts`
 
 **Checkpoint**: 算法测试全部通过，可生成有效数独谜题
 
