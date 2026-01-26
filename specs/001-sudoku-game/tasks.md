@@ -225,12 +225,12 @@
 
 **Purpose**: 刷新页面后可恢复游戏进度
 
-- [ ] T041 [P] 实现本地存储: `composables/useLocalStorage.ts`
+- [x] T041 [P] 实现本地存储: `composables/useLocalStorage.ts`
   - 或使用 @vueuse/core 的 `useStorage`
-- [ ] T042 更新游戏状态自动保存: `composables/useGameState.ts`
+- [x] T042 更新游戏状态自动保存: `composables/useGameState.ts`
   - 每次状态变化时保存
   - 页面加载时恢复
-- [ ] T043 添加恢复游戏提示 UI
+- [x] T043 添加恢复游戏提示 UI
   - 检测到保存的游戏时询问是否恢复
 
 **Checkpoint**: 刷新页面可恢复之前的游戏
