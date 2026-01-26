@@ -7,7 +7,15 @@ export default defineNuxtConfig({
 
   typescript: {
     strict: true,
-    typeCheck: true,
+    typeCheck: false, // Disabled to avoid vite-plugin-checker issues
+  },
+
+  components: {
+    dirs: [
+      { path: '~/components/game', pathPrefix: false },
+      { path: '~/components/setup', pathPrefix: false },
+      { path: '~/components/ui', pathPrefix: false },
+    ],
   },
 
   app: {
