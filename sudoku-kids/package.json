@@ -1,0 +1,33 @@
+{
+  "name": "sudoku-kids",
+  "version": "1.0.0",
+  "description": "数独游戏 - 专为小学生设计的可自定义数独游戏",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.7.0",
+    "nuxt": "^3.10.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.0.0",
+    "@nuxtjs/tailwindcss": "^6.10.0",
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0",
+    "@vue/test-utils": "^2.4.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.2.0"
+  }
+}

@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 min-h-screen;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 
+           min-w-touch min-h-touch
+           font-medium rounded-lg
+           transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-500 text-white 
+           hover:bg-primary-600 
+           focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-gray-200 text-gray-800 
+           hover:bg-gray-300 
+           focus:ring-gray-500;
+  }
+  
+  .btn-success {
+    @apply btn bg-success-500 text-white 
+           hover:bg-success-600 
+           focus:ring-success-500;
+  }
+
+  .sudoku-cell {
+    @apply flex items-center justify-center
+           min-w-touch min-h-touch
+           text-2xl font-bold
+           border border-gray-300
+           transition-all duration-150
+           cursor-pointer
+           select-none;
+  }
+  
+  .sudoku-cell--prefilled {
+    @apply bg-gray-100 text-gray-700 cursor-default;
+  }
+  
+  .sudoku-cell--user {
+    @apply bg-white text-primary-600;
+  }
+  
+  .sudoku-cell--selected {
+    @apply bg-primary-100 ring-2 ring-primary-500;
+  }
+  
+  .sudoku-cell--error {
+    @apply bg-error-50 text-error-600 ring-2 ring-error-500;
+  }
+  
+  .sudoku-cell--highlight {
+    @apply bg-primary-50;
+  }
+}
+
+@layer utilities {
+  .touch-target {
+    @apply min-w-touch min-h-touch;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .sudoku-cell {
+    border: 1px solid black !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    font-size: 18px !important;
+  }
+  
+  .sudoku-cell--selected,
+  .sudoku-cell--error {
+    background: white !important;
+    box-shadow: none !important;
+    ring: none !important;
+  }
+  
+  .box-border-right {
+    border-right: 2px solid black !important;
+  }
+  
+  .box-border-bottom {
+    border-bottom: 2px solid black !important;
+  }
+}
