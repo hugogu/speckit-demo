@@ -1,7 +1,7 @@
 <!--
   Home Page - Sudoku Game
-  Reference: tasks.md T016
-  Reference: spec.md §US1, §US6 - responsive layout
+  Reference: tasks.md T016, T021
+  Reference: spec.md §US1, §US2, §US6 - responsive layout
 -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
@@ -11,7 +11,11 @@ import type { BoardSize, Difficulty } from '~/types/sudoku';
 const {
   hasActiveGame,
   currentBoard,
+  selectedCell,
   startNewGame,
+  selectCell,
+  fillNumber,
+  clearSelectedCell,
   loadFromStorage,
 } = useGameState();
 
@@ -33,6 +37,30 @@ function handleStartGame(size: BoardSize, difficulty: Difficulty) {
 function handleNewGame() {
   showSetup.value = true;
 }
+
+/**
+ * Handle cell selection
+ * Reference: spec.md §US2
+ */
+function handleCellSelect(row: number, col: number) {
+  selectCell(row, col);
+}
+
+/**
+ * Handle number selection from pad
+ * Reference: spec.md §US2-2
+ */
+function handleNumberSelect(value: number) {
+  fillNumber(value);
+}
+
+/**
+ * Handle clear from number pad
+ * Reference: spec.md §US2-3
+ */
+function handleClear() {
+  clearSelectedCell();
+}
 </script>
 
 <template>
@@ -52,22 +80,39 @@ function handleNewGame() {
         @start="handleStartGame" 
       />
 
-      <!-- Game Board placeholder - will be implemented in Phase 4 -->
+      <!-- Game Area - Reference: spec.md §US6 responsive layout -->
       <div v-else class="space-y-6">
+        <!-- Controls -->
         <div class="flex justify-center gap-3 no-print">
           <button class="btn-secondary" @click="handleNewGame">
             新游戏
           </button>
         </div>
         
-        <div v-if="currentBoard" class="bg-white rounded-2xl shadow-lg p-6 text-center">
-          <p class="text-gray-600 mb-4">
-            棋盘大小: {{ currentBoard.size }}×{{ currentBoard.size }} | 
-            游戏已生成
-          </p>
-          <p class="text-sm text-gray-400">
-            棋盘 UI 将在 Phase 4 (US2) 中实现...
-          </p>
+        <!-- Game Layout: Board + NumberPad -->
+        <!-- Reference: plan.md §响应式布局断点 -->
+        <div 
+          v-if="currentBoard" 
+          class="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-6"
+        >
+          <!-- Sudoku Board -->
+          <SudokuBoard
+            :board="currentBoard"
+            @cell-select="handleCellSelect"
+          />
+
+          <!-- Number Pad - shown when cell is selected -->
+          <div class="w-full max-w-[200px]">
+            <NumberPad
+              v-if="selectedCell"
+              :size="currentBoard.size"
+              @select="handleNumberSelect"
+              @clear="handleClear"
+            />
+            <div v-else class="text-center text-gray-500 text-sm p-4">
+              点击空白格子选择数字
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -88,26 +88,26 @@
 
 ### Implementation for US2
 
-- [ ] T017 [P] [US2] 创建单元格组件: `components/game/SudokuCell.vue`
+- [x] T017 [P] [US2] 创建单元格组件: `components/game/SudokuCell.vue`
   - 显示数字或空白
   - 区分预填充和用户填写样式
   - 显示错误标记状态
   - 支持点击事件
   - 键盘可访问 (tabindex, aria-label)
-- [ ] T018 [P] [US2] 创建数字选择面板: `components/game/NumberPad.vue`
+- [x] T018 [P] [US2] 创建数字选择面板: `components/game/NumberPad.vue`
   - 根据棋盘大小显示 1-4/1-6/1-9
   - 清除按钮
   - 触摸友好布局
-- [ ] T019 [US2] 创建数独棋盘组件: `components/game/SudokuBoard.vue` (依赖 T017)
+- [x] T019 [US2] 创建数独棋盘组件: `components/game/SudokuBoard.vue` (依赖 T017)
   - 渲染 Cell 网格
   - 根据尺寸调整宫格边框 (2×2/2×3/3×3)
   - 响应式尺寸适配
-- [ ] T020 [US2] 实现点击填写逻辑: `composables/useSudoku.ts` (依赖 T011)
+- [x] T020 [US2] 实现点击填写逻辑: `composables/useSudoku.ts` (依赖 T011)
   - `selectCell(row, col)` 方法
   - `fillNumber(value)` 方法
   - `clearCell()` 方法
   - 禁止编辑预填充格子
-- [ ] T021 [US2] 集成棋盘和数字面板到首页 (依赖 T019, T018, T020)
+- [x] T021 [US2] 集成棋盘和数字面板到首页 (依赖 T019, T018, T020)
   - 更新 `pages/index.vue`
   - 实现格子选中状态
 
