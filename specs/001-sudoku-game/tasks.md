@@ -17,11 +17,11 @@
 
 **Purpose**: 创建 Nuxt 项目结构和基础配置
 
-- [ ] T001 初始化 Nuxt 3 项目: `pnpm create nuxt-app sudoku-kids`
-- [ ] T002 [P] 配置 TailwindCSS: `tailwind.config.js`, `nuxt.config.ts`
-- [ ] T003 [P] 配置 TypeScript 严格模式: `tsconfig.json`
-- [ ] T004 [P] 安装核心依赖: `@vueuse/core`
-- [ ] T005 [P] 配置测试框架: Vitest + Playwright
+- [x] T001 初始化 Nuxt 3 项目: `pnpm create nuxt-app sudoku-kids`
+- [x] T002 [P] 配置 TailwindCSS: `tailwind.config.js`, `nuxt.config.ts`
+- [x] T003 [P] 配置 TypeScript 严格模式: `tsconfig.json`
+- [x] T004 [P] 安装核心依赖: `@vueuse/core`
+- [x] T005 [P] 配置测试框架: Vitest + Playwright
 
 **Checkpoint**: 项目可运行 `pnpm dev` 显示默认页面
 
