@@ -151,14 +151,14 @@
 
 ### Implementation for US6
 
-- [ ] T026 [P] [US6] 实现移动端布局: `pages/index.vue` 更新
+- [x] T026 [P] [US6] 实现移动端布局: `pages/index.vue` 更新
   - <640px: 棋盘占满宽度，控制在下方
-- [ ] T027 [P] [US6] 实现平板布局: TailwindCSS 响应式类
+- [x] T027 [P] [US6] 实现平板布局: TailwindCSS 响应式类
   - 640-1024px: 棋盘居中，控制在侧边或下方
-- [ ] T028 [P] [US6] 实现桌面布局: TailwindCSS 响应式类
+- [x] T028 [P] [US6] 实现桌面布局: TailwindCSS 响应式类
   - >1024px: 棋盘和控制面板并排
-- [ ] T029 [US6] 测试触摸交互: 所有按钮 ≥44×44px
-- [ ] T030 [US6] 添加屏幕旋转过渡动画
+- [x] T029 [US6] 测试触摸交互: 所有按钮 ≥44×44px
+- [x] T030 [US6] 添加屏幕旋转过渡动画
 
 **Checkpoint**: 响应式布局完成，可在各设备上流畅使用
 

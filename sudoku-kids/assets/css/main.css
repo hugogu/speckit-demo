@@ -46,12 +46,72 @@
   }
 }
 
+/* Responsive Layout - Reference: spec.md §US6, plan.md §响应式布局断点 */
+@layer utilities {
+  /* Mobile (<640px): Board full width, controls below */
+  @screen sm {
+    .game-layout {
+      @apply flex-col;
+    }
+  }
+  
+  /* Tablet (640-1024px): Board centered */
+  @screen md {
+    .game-layout {
+      @apply flex-col items-center;
+    }
+  }
+  
+  /* Desktop (>1024px): Board and controls side by side */
+  @screen lg {
+    .game-layout {
+      @apply flex-row items-start;
+    }
+  }
+}
+
+/* Screen rotation transition - Reference: spec.md §US6-4 */
+@media (orientation: portrait) {
+  .sudoku-board {
+    max-width: 100%;
+  }
+}
+
+@media (orientation: landscape) {
+  .sudoku-board {
+    max-width: 60vh;
+  }
+}
+
+/* Print Styles - Reference: spec.md §US5, plan.md §打印实现 */
 @media print {
   body {
     background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   
   .no-print {
     display: none !important;
+  }
+  
+  /* Optimize board for printing */
+  .sudoku-board {
+    max-width: 180mm !important;
+    margin: 0 auto;
+  }
+  
+  /* Clear grid lines for print */
+  .sudoku-cell {
+    border: 1px solid #000 !important;
+  }
+  
+  /* Box borders more prominent */
+  .box-border-right {
+    border-right: 2px solid #000 !important;
+  }
+  
+  .box-border-bottom {
+    border-bottom: 2px solid #000 !important;
   }
 }
