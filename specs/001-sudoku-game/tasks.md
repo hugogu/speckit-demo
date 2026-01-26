@@ -172,19 +172,19 @@
 
 ### Implementation for US3
 
-- [ ] T031 [P] [US3] 实现拖拽 composable: `composables/useDragDrop.ts`
+- [x] T031 [P] [US3] 实现拖拽 composable: `composables/useDragDrop.ts`
   - 使用 @vueuse/core 的拖拽相关函数
   - 支持触摸设备 (touch events)
   - 拖拽状态管理
-- [ ] T032 [US3] 更新数字面板支持拖拽: `components/game/NumberPad.vue`
+- [x] T032 [US3] 更新数字面板支持拖拽: `components/game/NumberPad.vue`
   - 数字可拖拽
   - 拖拽时视觉反馈
-- [ ] T033 [US3] 更新单元格支持放置: `components/game/SudokuCell.vue`
+- [x] T033 [US3] 更新单元格支持放置: `components/game/SudokuCell.vue`
   - 接收拖拽放置
   - 悬停时高亮提示
   - 预填充格子显示不可放置
-- [ ] T034 [US3] 集成拖拽功能到游戏流程
-- [ ] T035 [US3] 添加拖拽不支持时的降级处理
+- [x] T034 [US3] 集成拖拽功能到游戏流程
+- [x] T035 [US3] 添加拖拽不支持时的降级处理
   - 检测浏览器支持
   - 隐藏拖拽相关提示
 
