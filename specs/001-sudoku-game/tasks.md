@@ -200,20 +200,20 @@
 
 ### Implementation for US5
 
-- [ ] T036 [P] [US5] 创建打印样式: `assets/css/print.css`
+- [x] T036 [P] [US5] 创建打印样式: `assets/css/print.css`
   - 隐藏交互元素
   - 优化棋盘边框和格线
   - 清晰的数字显示
-- [ ] T037 [P] [US5] 实现打印工具函数: `utils/print-styles.ts`
+- [x] T037 [P] [US5] 实现打印工具函数: `utils/print-styles.ts`
   - 应用打印专用样式
   - 处理打印后恢复
-- [ ] T038 [US5] 更新游戏控制实现打印: `components/game/GameControls.vue`
+- [x] T038 [US5] 更新游戏控制实现打印: `components/game/GameControls.vue`
   - 连接打印按钮
   - 调用 window.print()
-- [ ] T039 [US5] 实现批量打印功能 (最多10张)
+- [x] T039 [US5] 实现批量打印功能 (最多10张)
   - 生成多个不同谜题
   - 优化多页打印布局
-- [ ] T040 [US5] 添加打印选项对话框
+- [x] T040 [US5] 添加打印选项对话框
   - 选择打印当前状态还是空白棋盘
   - 选择批量打印数量
 
