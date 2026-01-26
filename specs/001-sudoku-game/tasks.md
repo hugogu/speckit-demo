@@ -123,19 +123,19 @@
 
 ### Implementation for US4
 
-- [ ] T022 [P] [US4] 创建游戏控制组件: `components/game/GameControls.vue`
+- [x] T022 [P] [US4] 创建游戏控制组件: `components/game/GameControls.vue`
   - "检查答案" 按钮
   - "新游戏" 按钮
   - "打印" 按钮 (占位，P2实现)
-- [ ] T023 [P] [US4] 创建庆祝弹窗组件: `components/ui/CelebrationModal.vue`
+- [x] T023 [P] [US4] 创建庆祝弹窗组件: `components/ui/CelebrationModal.vue`
   - 成功动画效果
   - 鼓励性文字
   - "再来一局" 按钮
-- [ ] T024 [US4] 实现验证逻辑: `composables/useSudoku.ts` 扩展
+- [x] T024 [US4] 实现验证逻辑: `composables/useSudoku.ts` 扩展
   - `checkAnswers()` 方法
   - 标记错误格子 (`cell.isError = true`)
   - 检测游戏完成状态
-- [ ] T025 [US4] 集成验证功能到首页 (依赖 T022, T023, T024)
+- [x] T025 [US4] 集成验证功能到首页 (依赖 T022, T023, T024)
   - 连接控制按钮
   - 触发庆祝弹窗
 

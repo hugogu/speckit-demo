@@ -9,6 +9,7 @@ import { useGameState } from '~/composables/useGameState';
 import type { BoardSize, Difficulty } from '~/types/sudoku';
 
 const {
+  gameState,
   hasActiveGame,
   currentBoard,
   selectedCell,
@@ -16,6 +17,8 @@ const {
   selectCell,
   fillNumber,
   clearSelectedCell,
+  checkAnswers,
+  resetGame,
   loadFromStorage,
 } = useGameState();
 
@@ -61,6 +64,44 @@ function handleNumberSelect(value: number) {
 function handleClear() {
   clearSelectedCell();
 }
+
+// Celebration modal state
+const showCelebration = ref(false);
+
+/**
+ * Handle check answers
+ * Reference: spec.md §US4, §FR-006
+ */
+function handleCheck() {
+  const result = checkAnswers();
+  if (result.isComplete) {
+    showCelebration.value = true;
+  }
+}
+
+/**
+ * Handle reset game
+ */
+function handleReset() {
+  resetGame();
+}
+
+/**
+ * Handle print - placeholder for Phase 8
+ * Reference: spec.md §US5
+ */
+function handlePrint() {
+  window.print();
+}
+
+function handleCloseCelebration() {
+  showCelebration.value = false;
+}
+
+function handleNewGameFromCelebration() {
+  showCelebration.value = false;
+  showSetup.value = true;
+}
 </script>
 
 <template>
@@ -82,12 +123,13 @@ function handleClear() {
 
       <!-- Game Area - Reference: spec.md §US6 responsive layout -->
       <div v-else class="space-y-6">
-        <!-- Controls -->
-        <div class="flex justify-center gap-3 no-print">
-          <button class="btn-secondary" @click="handleNewGame">
-            新游戏
-          </button>
-        </div>
+        <!-- Game Controls - Reference: tasks.md T022, T025 -->
+        <GameControls
+          @check="handleCheck"
+          @reset="handleReset"
+          @new-game="handleNewGame"
+          @print="handlePrint"
+        />
         
         <!-- Game Layout: Board + NumberPad -->
         <!-- Reference: plan.md §响应式布局断点 -->
@@ -115,6 +157,13 @@ function handleClear() {
           </div>
         </div>
       </div>
+
+      <!-- Celebration Modal - Reference: tasks.md T023, spec.md §FR-007 -->
+      <CelebrationModal
+        :show="showCelebration"
+        @close="handleCloseCelebration"
+        @new-game="handleNewGameFromCelebration"
+      />
     </div>
   </div>
 </template>
