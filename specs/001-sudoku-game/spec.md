@@ -149,6 +149,28 @@
 - **GameSession**: 游戏会话，包含开始时间、当前棋盘状态、是否完成
 - **NumberPad**: 数字选择器，包含可选数字列表、当前选中数字
 
+## Clarifications
+
+### Session 2026-01-26
+
+- Q: 6×6 数独棋盘的数字范围是什么？ → A: 使用 1-6，分为 2×3 的宫格
+- Q: 是否需要计时功能？ → A: 不需要，避免给学生造成时间压力
+- Q: 错误提示是实时显示还是仅在检查时显示？ → A: 仅在用户点击"检查答案"时显示，培养独立思考
+- Q: 是否需要保存游戏进度（刷新后恢复）？ → A: 是，使用 localStorage 自动保存当前游戏状态
+- Q: 批量打印最多支持多少张？ → A: 最多 10 张，避免浏览器性能问题
+
+### Clarifications Applied
+
+**FR-001 Updated**: System MUST 支持生成 4×4（2×2宫格，数字1-4）、6×6（2×3宫格，数字1-6）、9×9（3×3宫格，数字1-9）三种尺寸的数独棋盘
+
+**FR-013 Added**: System MUST NOT 包含计时或倒计时功能，以避免给学生造成时间压力
+
+**FR-014 Added**: System MUST 使用 localStorage 自动保存当前游戏状态，刷新页面后可恢复
+
+**FR-006 Clarified**: 错误标记仅在用户主动点击"检查答案"按钮时显示，不实时校验
+
+**User Story 5 Updated**: 批量打印功能限制最多 10 张
+
 ## Success Criteria *(mandatory)*
 
 ### Measurable Outcomes
