@@ -5,7 +5,7 @@
 
 ## Summary
 
-构建一个面向小学生的在线数独学习游戏，支持 4×4、6×6、9×9 三种棋盘大小和四种难度级别。核心功能包括点击/拖拽双模式交互、即时正误判断、游戏记录追踪、打印练习题功能。技术栈采用 Vue 3 + Nuxt.js + TailwindCSS + TypeScript + Pinia，支持 PC 和移动端响应式布局，完全离线可用。
+构建一个面向小学生的在线数独学习游戏，支持 4×4、6×6、9×9 三种棋盘大小和四种难度级别。核心功能包括点击/拖拽双模式交互、即时正误判断、游戏记录追踪、打印练习题功能。技术栈采用 Vue 3 + Nuxt.js + TailwindCSS + TypeScript + Pinia，支持 PC 和移动端响应式布局，完全离线可用。支持通过 Docker 部署。
 
 ## Technical Context
 
@@ -17,7 +17,8 @@
 **Project Type**: Web application (SPA/SSG via Nuxt)  
 **Performance Goals**: 首屏加载 < 1s (3G), 交互响应 < 100ms, 动画 60fps  
 **Constraints**: 离线可用, 触摸目标 ≥ 44×44px, WCAG AA 颜色对比度  
-**Scale/Scope**: 单用户本地应用, 无后端服务器
+**Scale/Scope**: 单用户本地应用, 无后端服务器  
+**Deployment**: Docker + nginx (多阶段构建, 镜像 < 50MB)
 
 ## Constitution Check
 

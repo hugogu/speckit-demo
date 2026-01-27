@@ -18,6 +18,8 @@
 Based on plan.md structure (Nuxt 3 web application):
 
 - **Source**: `src/` at repository root
+- **Docker**: `Dockerfile`, `nginx.conf`, `.dockerignore` at repository root
+- **Scripts**: `scripts/` at repository root
 - **Components**: `src/components/{game,history,print,ui}/`
 - **Composables**: `src/composables/`
 - **Stores**: `src/stores/`
@@ -185,19 +187,38 @@ Based on plan.md structure (Nuxt 3 web application):
 
 ---
 
-## Phase 9: Polish & Cross-Cutting Concerns
+## Phase 9: Docker Deployment (Priority: P2)
+
+**Goal**: 提供 Docker 部署支持，包括 Dockerfile 和构建脚本
+
+**Independent Test**: 运行构建脚本 → 生成 Docker 镜像 → 启动容器 → 访问应用正常
+
+### Implementation for Docker Deployment
+
+- [ ] T062 [P] Create multi-stage Dockerfile in Dockerfile
+- [ ] T063 [P] Create nginx configuration for SPA routing in nginx.conf
+- [ ] T064 Create Docker build script with version tagging in scripts/docker-build.sh
+- [ ] T065 Create .dockerignore file to exclude unnecessary files
+- [ ] T066 Add Docker deployment documentation to README.md
+- [ ] T067 Verify Docker image size < 50MB per FR-035
+
+**Checkpoint**: Docker deployment ready - app can be deployed via Docker
+
+---
+
+## Phase 10: Polish & Cross-Cutting Concerns
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T062 [P] Add WCAG AA color contrast validation to all components
-- [ ] T063 [P] Add keyboard navigation support per FR-023
-- [ ] T064 [P] Add Chinese/English language support per constitution
-- [ ] T065 [P] Configure PWA manifest (name, icons, theme color)
-- [ ] T066 [P] Add service worker for offline caching
-- [ ] T067 E2E test for complete game flow in tests/e2e/game-flow.spec.ts
-- [ ] T068 Performance optimization: ensure < 1s first load (3G)
-- [ ] T069 Run quickstart.md validation
-- [ ] T070 Final code cleanup and documentation
+- [ ] T068 [P] Add WCAG AA color contrast validation to all components
+- [ ] T069 [P] Add keyboard navigation support per FR-023
+- [ ] T070 [P] Add Chinese/English language support per constitution
+- [ ] T071 [P] Configure PWA manifest (name, icons, theme color)
+- [ ] T072 [P] Add service worker for offline caching
+- [ ] T073 E2E test for complete game flow in tests/e2e/game-flow.spec.ts
+- [ ] T074 Performance optimization: ensure < 1s first load (3G)
+- [ ] T075 Run quickstart.md validation
+- [ ] T076 Final code cleanup and documentation
 
 ---
 
@@ -211,7 +232,8 @@ Based on plan.md structure (Nuxt 3 web application):
   - US1 and US2 are both P1, can run in parallel
   - US3, US4, US5 are P2, can run in parallel after US1/US2
   - US6 is P3, can start after Foundational
-- **Polish (Phase 9)**: Depends on all desired user stories being complete
+- **Docker (Phase 9)**: Can start after Setup - independent of user stories
+- **Polish (Phase 10)**: Depends on all desired user stories being complete
 
 ### User Story Dependencies
 
