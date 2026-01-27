@@ -238,7 +238,7 @@ function startNewInsteadOfResume() {
       <div v-else-if="gameStore.board" class="space-y-6">
         <!-- Game Info Bar -->
         <div class="bg-white rounded-xl shadow p-4 flex flex-wrap items-center justify-between gap-4">
-          <GameGameTimer
+          <GameTimer
             :time="gameStore.formattedTime"
             :is-paused="gameStore.isPaused"
           />
@@ -275,7 +275,7 @@ function startNewInsteadOfResume() {
         </div>
 
         <!-- Game Controls -->
-        <GameGameControls
+        <GameControls
           :is-playing="gameStore.isPlaying"
           :is-paused="gameStore.isPaused"
           @new-game="handleNewGame"
