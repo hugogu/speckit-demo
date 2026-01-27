@@ -128,6 +128,12 @@ git diff <commit-1> <commit-2>
 ### 安装 Specify CLI
 
 ```bash
+# 安装 Python
+# https://www.python.org/downloads/
+
+# 安装 uv
+pip install uv
+
 # 使用 uv 安装（推荐）
 uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 
