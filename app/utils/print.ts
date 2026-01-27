@@ -34,7 +34,6 @@ export function generatePrintPuzzles(
       difficulty,
     })
   }
-
   return puzzles
 }
 

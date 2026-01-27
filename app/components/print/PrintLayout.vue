@@ -43,32 +43,29 @@ const gridColsClass = computed(() => {
 })
 
 const cellSizeClass = computed(() => {
-  // Ensure minimum 1cm x 1cm cell size for printing
+  // Ensure minimum ~1cm cell size for printing (1cm ≈ 38px at 96dpi)
   switch (props.boardSize) {
-    case 4: return 'w-[1.5cm] h-[1.5cm] text-lg'
-    case 6: return 'w-[1.2cm] h-[1.2cm] text-base'
-    case 9: return 'w-[1cm] h-[1cm] text-sm'
-    default: return 'w-[1cm] h-[1cm] text-sm'
+    case 4: return 'w-14 h-14 text-lg'      // 56px ≈ 1.5cm
+    case 6: return 'w-12 h-12 text-base'    // 48px ≈ 1.2cm
+    case 9: return 'w-10 h-10 text-sm'      // 40px ≈ 1cm
+    default: return 'w-10 h-10 text-sm'
   }
 })
 </script>
 
 <template>
   <div class="print-puzzle inline-block">
-    <div class="text-xs text-gray-500 mb-1 print:text-[8pt]">
+    <div class="text-xs text-gray-500 mb-1">
       #{{ puzzleNumber }}
     </div>
     <div 
+      v-if="puzzle && puzzle.length > 0"
       :class="[
         'grid gap-0 border-2 border-gray-800',
         gridColsClass
       ]"
     >
-      <div
-        v-for="(row, rowIndex) in puzzle"
-        :key="rowIndex"
-        class="contents"
-      >
+      <template v-for="(row, rowIndex) in puzzle" :key="rowIndex">
         <div
           v-for="(cell, colIndex) in row"
           :key="`${rowIndex}-${colIndex}`"
@@ -81,7 +78,10 @@ const cellSizeClass = computed(() => {
         >
           {{ cell === 0 ? '' : cell }}
         </div>
-      </div>
+      </template>
+    </div>
+    <div v-else class="text-red-500 text-xs">
+      No puzzle data
     </div>
   </div>
 </template>
