@@ -57,7 +57,7 @@ const boardSizeLabel = computed(() => {
         gridClass
       ]"
     >
-      <PrintPrintLayout
+      <PrintLayout
         v-for="(puzzle, index) in puzzles"
         :key="puzzle.id"
         :puzzle="showSolutions ? puzzle.solution : puzzle.puzzle"

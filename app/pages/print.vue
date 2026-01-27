@@ -162,7 +162,7 @@ function handleClear() {
 
         <!-- Print Preview -->
         <div class="bg-white rounded-xl shadow-lg p-6 print:shadow-none print:p-0 print:rounded-none">
-          <PrintPrintPreview
+          <PrintPreview
             :puzzles="puzzles"
             :show-solutions="false"
           />
@@ -172,7 +172,7 @@ function handleClear() {
             <h2 class="text-lg font-semibold text-center mb-6 print:text-base print:mb-4">
               答案
             </h2>
-            <PrintPrintPreview
+            <PrintPreview
               :puzzles="puzzles"
               :show-solutions="true"
             />
