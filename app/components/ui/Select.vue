@@ -32,7 +32,9 @@ function handleChange(event: Event) {
   const target = event.target as HTMLSelectElement
   const option = props.options.find(o => String(o.value) === target.value)
   if (option) {
-    emit('update:modelValue', option.value)
+    // Preserve the original type (number or string)
+    const value = typeof option.value === 'number' ? Number(target.value) : target.value
+    emit('update:modelValue', value)
   }
 }
 </script>
