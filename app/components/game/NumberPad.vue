@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { BoardSize } from '~/types'
+import { useDragAndDrop } from '~/composables/useDragAndDrop'
 
 interface Props {
   boardSize: BoardSize
@@ -14,6 +15,8 @@ const emit = defineEmits<{
   selectNumber: [value: number]
   clear: []
 }>()
+
+const { startDrag, handleTouchStart, handleTouchMove, handleTouchEnd, endDrag } = useDragAndDrop()
 
 const numbers = computed(() => {
   return Array.from({ length: props.boardSize }, (_, i) => i + 1)
@@ -30,6 +33,34 @@ function handleClear() {
     emit('clear')
   }
 }
+
+function handleDragStart(event: DragEvent, num: number) {
+  if (!props.disabled) {
+    startDrag(event, num)
+  }
+}
+
+function handleDragEnd() {
+  endDrag()
+}
+
+function onTouchStart(event: TouchEvent, num: number) {
+  if (!props.disabled) {
+    handleTouchStart(event, num)
+  }
+}
+
+function onTouchMove(event: TouchEvent) {
+  handleTouchMove(event)
+}
+
+function onTouchEnd(event: TouchEvent) {
+  const result = handleTouchEnd(event)
+  if (result) {
+    // Emit event for parent to handle
+    emit('selectNumber', result.value)
+  }
+}
 </script>
 
 <template>
@@ -38,13 +69,19 @@ function handleClear() {
       v-for="num in numbers"
       :key="num"
       :disabled="disabled"
+      draggable="true"
       class="w-12 h-12 sm:w-14 sm:h-14 min-w-11 min-h-11 flex items-center justify-center
              text-xl font-bold rounded-lg
              bg-indigo-100 text-indigo-700 
              hover:bg-indigo-200 active:bg-indigo-300
              disabled:opacity-50 disabled:cursor-not-allowed
-             transition-colors duration-150"
+             transition-colors duration-150 cursor-grab active:cursor-grabbing"
       @click="handleNumberClick(num)"
+      @dragstart="handleDragStart($event, num)"
+      @dragend="handleDragEnd"
+      @touchstart.passive="onTouchStart($event, num)"
+      @touchmove.passive="onTouchMove"
+      @touchend="onTouchEnd"
     >
       {{ num }}
     </button>

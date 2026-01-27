@@ -64,6 +64,12 @@ function handleNumberSelect(value: number) {
   gameStore.placeNumber(value)
 }
 
+function handleDropNumber(row: number, col: number, value: number) {
+  // Select the cell first, then place the number
+  gameStore.selectCell(row, col)
+  gameStore.placeNumber(value)
+}
+
 function handleClear() {
   gameStore.clearCell()
 }
@@ -93,6 +99,17 @@ function startNewInsteadOfResume() {
     <div class="container mx-auto px-4 py-8 max-w-2xl">
       <!-- Header -->
       <header class="text-center mb-8">
+        <div class="flex justify-end mb-2">
+          <NuxtLink 
+            to="/history" 
+            class="flex items-center gap-1 text-sm text-indigo-600 hover:text-indigo-700 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+            游戏记录
+          </NuxtLink>
+        </div>
         <h1 class="text-3xl sm:text-4xl font-bold text-indigo-600 mb-2">
           🎮 数独学习游戏
         </h1>
@@ -167,6 +184,7 @@ function startNewInsteadOfResume() {
             :selected-cell="gameStore.selectedCell"
             :highlighted-cells="gameStore.highlightedCells"
             @select-cell="handleCellSelect"
+            @drop-number="handleDropNumber"
           />
         </div>
 

@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
-import type { Game, Board, BoardSize, Difficulty, GameStatus, Cell } from '~/types'
+import type { Game, Board, BoardSize, Difficulty, GameStatus, Cell, GameRecord } from '~/types'
 import { useSudokuGenerator } from '~/composables/useSudokuGenerator'
 import { useSudokuValidator } from '~/composables/useSudokuValidator'
-import { saveCurrentGameState, getCurrentGameState, clearCurrentGameState } from '~/utils/storage'
+import { saveCurrentGameState, getCurrentGameState, clearCurrentGameState, saveGameRecord } from '~/utils/storage'
 
 interface GameState {
   game: Game | null
@@ -169,7 +169,36 @@ export const useGameStore = defineStore('game', {
         this.game.endTime = Date.now()
         this.stopTimer()
         clearCurrentGameState()
+        
+        // Save game record to history
+        this.saveGameToHistory()
       }
+    },
+
+    saveGameToHistory() {
+      if (!this.game) return
+      
+      const record: GameRecord = {
+        id: this.game.id,
+        boardSize: this.game.boardSize,
+        difficulty: this.game.difficulty,
+        initialBoard: this.game.board.cells.map(row => 
+          row.map(cell => cell.isPrefilled ? cell.value! : 0)
+        ),
+        finalBoard: this.game.board.cells.map(row => 
+          row.map(cell => cell.value ?? 0)
+        ),
+        solution: this.game.board.cells.map(row => 
+          row.map(cell => cell.solution)
+        ),
+        duration: this.elapsedTime,
+        errorCount: this.game.errorCount,
+        moveCount: this.game.moveCount,
+        completedAt: Date.now(),
+        isCompleted: this.game.status === 'completed',
+      }
+      
+      saveGameRecord(record)
     },
 
     pauseGame() {

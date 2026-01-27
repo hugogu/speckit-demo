@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Board } from '~/types'
+import { useDragAndDrop } from '~/composables/useDragAndDrop'
 
 interface Props {
   board: Board
@@ -11,7 +12,10 @@ const props = defineProps<Props>()
 
 const emit = defineEmits<{
   selectCell: [row: number, col: number]
+  dropNumber: [row: number, col: number, value: number]
 }>()
+
+const { isDragOverCell, handleDragOver, handleDragLeave, dragOverCell } = useDragAndDrop()
 
 const gridClasses = computed(() => {
   const size = props.board.size
@@ -31,6 +35,10 @@ function isHighlighted(row: number, col: number): boolean {
 
 function handleCellSelect(row: number, col: number) {
   emit('selectCell', row, col)
+}
+
+function handleCellDrop(row: number, col: number, value: number) {
+  emit('dropNumber', row, col, value)
 }
 
 // Calculate thick border positions for box boundaries
@@ -64,8 +72,10 @@ function getCellBorderClasses(row: number, col: number): string {
           :cell="cell"
           :is-selected="isSelected(rowIndex, cell.col)"
           :is-highlighted="isHighlighted(rowIndex, cell.col)"
+          :is-drag-over="isDragOverCell(rowIndex, cell.col)"
           :board-size="board.size"
           @select="handleCellSelect"
+          @drop="handleCellDrop"
         />
       </div>
     </template>

@@ -101,11 +101,11 @@ Based on plan.md structure (Nuxt 3 web application):
 
 ### Implementation for User Story 2
 
-- [ ] T033 [US2] Implement drag and drop composable in src/composables/useDragAndDrop.ts
-- [ ] T034 [US2] Add drag source behavior to NumberPad.vue
-- [ ] T035 [US2] Add drop target behavior to SudokuCell.vue
-- [ ] T036 [US2] Add drag-over highlight styling to SudokuCell.vue
-- [ ] T037 [US2] Add touch event support for mobile drag in useDragAndDrop.ts
+- [x] T033 [US2] Implement drag and drop composable in src/composables/useDragAndDrop.ts
+- [x] T034 [US2] Add drag source behavior to NumberPad.vue
+- [x] T035 [US2] Add drop target behavior to SudokuCell.vue
+- [x] T036 [US2] Add drag-over highlight styling to SudokuCell.vue
+- [x] T037 [US2] Add touch event support for mobile drag in useDragAndDrop.ts
 - [ ] T038 [US2] Unit test for drag and drop composable in tests/unit/composables/useDragAndDrop.test.ts
 
 **Checkpoint**: User Story 2 complete - both click and drag interactions work seamlessly
@@ -120,12 +120,12 @@ Based on plan.md structure (Nuxt 3 web application):
 
 ### Implementation for User Story 3
 
-- [ ] T039 [US3] Create history store for records management in src/stores/history.ts
-- [ ] T040 [US3] Integrate game completion with history store (save record)
-- [ ] T041 [US3] Create HistoryList component in src/components/history/HistoryList.vue
-- [ ] T042 [US3] Create HistoryDetail component in src/components/history/HistoryDetail.vue
-- [ ] T043 [US3] Create HistoryFilter component (difficulty, date) in src/components/history/HistoryFilter.vue
-- [ ] T044 [US3] Implement history page in src/pages/history.vue
+- [x] T039 [US3] Create history store for records management in src/stores/history.ts
+- [x] T040 [US3] Integrate game completion with history store (save record)
+- [x] T041 [US3] Create HistoryList component in src/components/history/HistoryList.vue
+- [x] T042 [US3] Create HistoryDetail component in src/components/history/HistoryDetail.vue
+- [x] T043 [US3] Create HistoryFilter component (difficulty, date) in src/components/history/HistoryFilter.vue
+- [x] T044 [US3] Implement history page in src/pages/history.vue
 - [ ] T045 [US3] Unit test for history store in tests/unit/stores/history.test.ts
 
 **Checkpoint**: User Story 3 complete - game records are saved and viewable
