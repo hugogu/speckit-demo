@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
@@ -31,11 +31,11 @@
 
 ## Notes
 
-Edge Cases 部分提出了 5 个需要澄清的问题：
-1. 4×4 棋盘的"专家"难度预填数字数量
-2. 游戏中断后是否恢复进度
-3. 一张纸最多打印多少个题目
-4. 历史记录存储位置和上限
-5. 离线状态下的功能支持
+所有 Edge Cases 已在 `/speckit.clarify` 阶段解决（2026-01-27）：
+1. 4×4 专家难度：保留 4 个预填数字（25%）
+2. 游戏中断：询问用户是否继续或开始新游戏
+3. 打印数量：动态调整（4×4 打 8 个，6×6 打 6 个，9×9 打 4 个）
+4. 历史记录：本地 localStorage 存储，最多 100 条
+5. 离线支持：完全支持（可玩新游戏和查看历史记录）
 
-这些问题将在 `/speckit.clarify` 阶段解决。
+规格已更新，可进入 `/speckit.plan` 阶段。
