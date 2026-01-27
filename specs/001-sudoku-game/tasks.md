@@ -140,12 +140,12 @@ Based on plan.md structure (Nuxt 3 web application):
 
 ### Implementation for User Story 4
 
-- [ ] T046 [US4] Implement print utility functions in src/utils/print.ts
-- [ ] T047 [US4] Create PrintLayout component with CSS Grid in src/components/print/PrintLayout.vue
-- [ ] T048 [US4] Create PrintPreview component in src/components/print/PrintPreview.vue
-- [ ] T049 [US4] Create print page with options in src/pages/print.vue
-- [ ] T050 [US4] Add @media print styles for optimized printing
-- [ ] T051 [US4] Ensure minimum cell size 1cm x 1cm per SC-005
+- [x] T046 [US4] Implement print utility functions in src/utils/print.ts
+- [x] T047 [US4] Create PrintLayout component with CSS Grid in src/components/print/PrintLayout.vue
+- [x] T048 [US4] Create PrintPreview component in src/components/print/PrintPreview.vue
+- [x] T049 [US4] Create print page with options in src/pages/print.vue
+- [x] T050 [US4] Add @media print styles for optimized printing
+- [x] T051 [US4] Ensure minimum cell size 1cm x 1cm per SC-005
 
 **Checkpoint**: User Story 4 complete - users can print practice sheets
 
@@ -159,11 +159,11 @@ Based on plan.md structure (Nuxt 3 web application):
 
 ### Implementation for User Story 5
 
-- [ ] T052 [US5] Add responsive breakpoints to all game components
-- [ ] T053 [US5] Ensure touch targets >= 44x44px on mobile (min-w-11 min-h-11)
-- [ ] T054 [US5] Add landscape/portrait layout variants to SudokuBoard.vue
-- [ ] T055 [US5] Add responsive layout to NumberPad.vue
-- [ ] T056 [US5] E2E test for responsive behavior in tests/e2e/responsive.spec.ts
+- [x] T052 [US5] Add responsive breakpoints to all game components
+- [x] T053 [US5] Ensure touch targets >= 44x44px on mobile (min-w-11 min-h-11)
+- [x] T054 [US5] Add landscape/portrait layout variants to SudokuBoard.vue
+- [x] T055 [US5] Add responsive layout to NumberPad.vue
+- [x] T056 [US5] E2E test for responsive behavior in tests/e2e/responsive.spec.ts
 
 **Checkpoint**: User Story 5 complete - app works well on all devices
 

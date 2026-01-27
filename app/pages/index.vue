@@ -99,7 +99,16 @@ function startNewInsteadOfResume() {
     <div class="container mx-auto px-4 py-8 max-w-2xl">
       <!-- Header -->
       <header class="text-center mb-8">
-        <div class="flex justify-end mb-2">
+        <div class="flex justify-end gap-4 mb-2">
+          <NuxtLink 
+            to="/print" 
+            class="flex items-center gap-1 text-sm text-indigo-600 hover:text-indigo-700 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            打印练习
+          </NuxtLink>
           <NuxtLink 
             to="/history" 
             class="flex items-center gap-1 text-sm text-indigo-600 hover:text-indigo-700 transition-colors"
