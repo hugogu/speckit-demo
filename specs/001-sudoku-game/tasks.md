@@ -34,14 +34,14 @@ Based on plan.md structure (Nuxt 3 web application):
 
 **Purpose**: Project initialization and Nuxt 3 + Vue 3 + TailwindCSS + Pinia setup
 
-- [ ] T001 Initialize Nuxt 3 project with TypeScript in repository root
-- [ ] T002 Install and configure TailwindCSS 3.x in nuxt.config.ts
-- [ ] T003 [P] Install and configure Pinia 2.x for state management
-- [ ] T004 [P] Install and configure @vite-pwa/nuxt for offline support
-- [ ] T005 [P] Configure ESLint + Prettier per constitution standards
-- [ ] T006 [P] Setup Vitest for unit testing in vitest.config.ts
-- [ ] T007 [P] Setup Playwright for E2E testing in playwright.config.ts
-- [ ] T008 Create project directory structure per plan.md
+- [x] T001 Initialize Nuxt 3 project with TypeScript in repository root
+- [x] T002 Install and configure TailwindCSS 3.x in nuxt.config.ts
+- [x] T003 [P] Install and configure Pinia 2.x for state management
+- [x] T004 [P] Install and configure @vite-pwa/nuxt for offline support
+- [x] T005 [P] Configure ESLint + Prettier per constitution standards
+- [x] T006 [P] Setup Vitest for unit testing in vitest.config.ts
+- [x] T007 [P] Setup Playwright for E2E testing in playwright.config.ts
+- [x] T008 Create project directory structure per plan.md
 
 ---
 
@@ -51,18 +51,18 @@ Based on plan.md structure (Nuxt 3 web application):
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T009 Define TypeScript types for Game, Board, Cell, GameRecord, Settings in src/types/index.ts
-- [ ] T010 [P] Define difficulty presets (PREFILLED_COUNTS) in src/types/index.ts
-- [ ] T011 [P] Define print configuration (PRINT_COUNTS) in src/types/index.ts
-- [ ] T012 [P] Define storage keys constants in src/types/index.ts
-- [ ] T013 Implement localStorage wrapper with LRU eviction in src/utils/storage.ts
-- [ ] T014 [P] Implement sudoku generator algorithm (backtracking) in src/composables/useSudokuGenerator.ts
-- [ ] T015 [P] Implement sudoku validator logic in src/composables/useSudokuValidator.ts
-- [ ] T016 Unit test for sudoku generator in tests/unit/sudoku-generator.test.ts
-- [ ] T017 Unit test for sudoku validator in tests/unit/sudoku-validator.test.ts
-- [ ] T018 Create base UI components: Button.vue in src/components/ui/Button.vue
-- [ ] T019 [P] Create base UI components: Modal.vue in src/components/ui/Modal.vue
-- [ ] T020 [P] Create base UI components: Select.vue in src/components/ui/Select.vue
+- [x] T009 Define TypeScript types for Game, Board, Cell, GameRecord, Settings in src/types/index.ts
+- [x] T010 [P] Define difficulty presets (PREFILLED_COUNTS) in src/types/index.ts
+- [x] T011 [P] Define print configuration (PRINT_COUNTS) in src/types/index.ts
+- [x] T012 [P] Define storage keys constants in src/types/index.ts
+- [x] T013 Implement localStorage wrapper with LRU eviction in src/utils/storage.ts
+- [x] T014 [P] Implement sudoku generator algorithm (backtracking) in src/composables/useSudokuGenerator.ts
+- [x] T015 [P] Implement sudoku validator logic in src/composables/useSudokuValidator.ts
+- [x] T016 Unit test for sudoku generator in tests/unit/sudoku-generator.test.ts
+- [x] T017 Unit test for sudoku validator in tests/unit/sudoku-validator.test.ts
+- [x] T018 Create base UI components: Button.vue in src/components/ui/Button.vue
+- [x] T019 [P] Create base UI components: Modal.vue in src/components/ui/Modal.vue
+- [x] T020 [P] Create base UI components: Select.vue in src/components/ui/Select.vue
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -76,17 +76,17 @@ Based on plan.md structure (Nuxt 3 web application):
 
 ### Implementation for User Story 1
 
-- [ ] T021 [US1] Create game store with state management in src/stores/game.ts
-- [ ] T022 [P] [US1] Implement game timer composable in src/composables/useGameTimer.ts
-- [ ] T023 [US1] Create SudokuCell component with click interaction in src/components/game/SudokuCell.vue
-- [ ] T024 [US1] Create SudokuBoard component (grid layout) in src/components/game/SudokuBoard.vue
-- [ ] T025 [US1] Create NumberPad component for digit selection in src/components/game/NumberPad.vue
-- [ ] T026 [US1] Create GameTimer component display in src/components/game/GameTimer.vue
-- [ ] T027 [US1] Create GameControls component (new game, pause) in src/components/game/GameControls.vue
-- [ ] T028 [US1] Create victory modal with stats in src/components/game/VictoryModal.vue
-- [ ] T029 [US1] Implement game page with difficulty/size selection in src/pages/index.vue
-- [ ] T030 [US1] Add instant feedback animations (correct/error) in SudokuCell.vue
-- [ ] T031 [US1] Add error auto-revert logic with friendly animation
+- [x] T021 [US1] Create game store with state management in src/stores/game.ts
+- [x] T022 [P] [US1] Implement game timer composable in src/composables/useGameTimer.ts
+- [x] T023 [US1] Create SudokuCell component with click interaction in src/components/game/SudokuCell.vue
+- [x] T024 [US1] Create SudokuBoard component (grid layout) in src/components/game/SudokuBoard.vue
+- [x] T025 [US1] Create NumberPad component for digit selection in src/components/game/NumberPad.vue
+- [x] T026 [US1] Create GameTimer component display in src/components/game/GameTimer.vue
+- [x] T027 [US1] Create GameControls component (new game, pause) in src/components/game/GameControls.vue
+- [x] T028 [US1] Create victory modal with stats in src/components/game/VictoryModal.vue
+- [x] T029 [US1] Implement game page with difficulty/size selection in src/pages/index.vue
+- [x] T030 [US1] Add instant feedback animations (correct/error) in SudokuCell.vue
+- [x] T031 [US1] Add error auto-revert logic with friendly animation
 - [ ] T032 [US1] Unit test for game store in tests/unit/stores/game.test.ts
 
 **Checkpoint**: User Story 1 complete - core game is fully playable with click interaction
