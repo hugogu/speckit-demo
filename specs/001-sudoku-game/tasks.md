@@ -177,10 +177,10 @@ Based on plan.md structure (Nuxt 3 web application):
 
 ### Implementation for User Story 6
 
-- [ ] T057 [US6] Create settings store with persistence in src/stores/settings.ts
-- [ ] T058 [US6] Create settings page in src/pages/settings.vue
-- [ ] T059 [US6] Integrate settings with game initialization
-- [ ] T060 [US6] Add game resume prompt (continue or new game) on app open
+- [x] T057 [US6] Create settings store with persistence in src/stores/settings.ts
+- [x] T058 [US6] Create settings page in src/pages/settings.vue
+- [x] T059 [US6] Integrate settings with game initialization
+- [x] T060 [US6] Add game resume prompt (continue or new game) on app open
 - [ ] T061 [US6] Unit test for settings store in tests/unit/stores/settings.test.ts
 
 **Checkpoint**: User Story 6 complete - user preferences are saved
@@ -195,11 +195,11 @@ Based on plan.md structure (Nuxt 3 web application):
 
 ### Implementation for Docker Deployment
 
-- [ ] T062 [P] Create multi-stage Dockerfile in Dockerfile
-- [ ] T063 [P] Create nginx configuration for SPA routing in nginx.conf
-- [ ] T064 Create Docker build script with version tagging in scripts/docker-build.sh
-- [ ] T065 Create .dockerignore file to exclude unnecessary files
-- [ ] T066 Add Docker deployment documentation to README.md
+- [x] T062 [P] Create multi-stage Dockerfile in Dockerfile
+- [x] T063 [P] Create nginx configuration for SPA routing in nginx.conf
+- [x] T064 Create Docker build script with version tagging in scripts/docker-build.sh
+- [x] T065 Create .dockerignore file to exclude unnecessary files
+- [x] T066 Add Docker deployment documentation to README.md
 - [ ] T067 Verify Docker image size < 50MB per FR-035
 
 **Checkpoint**: Docker deployment ready - app can be deployed via Docker
@@ -211,14 +211,14 @@ Based on plan.md structure (Nuxt 3 web application):
 **Purpose**: Improvements that affect multiple user stories
 
 - [ ] T068 [P] Add WCAG AA color contrast validation to all components
-- [ ] T069 [P] Add keyboard navigation support per FR-023
+- [x] T069 [P] Add keyboard navigation support per FR-023
 - [ ] T070 [P] Add Chinese/English language support per constitution
 - [ ] T071 [P] Configure PWA manifest (name, icons, theme color)
 - [ ] T072 [P] Add service worker for offline caching
-- [ ] T073 E2E test for complete game flow in tests/e2e/game-flow.spec.ts
+- [x] T073 E2E test for complete game flow in tests/e2e/game-flow.spec.ts
 - [ ] T074 Performance optimization: ensure < 1s first load (3G)
 - [ ] T075 Run quickstart.md validation
-- [ ] T076 Final code cleanup and documentation
+- [x] T076 Final code cleanup and documentation
 
 ---
 

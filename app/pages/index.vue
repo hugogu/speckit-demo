@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { BoardSize, Difficulty } from '~/types'
 import { useGameStore } from '~/stores/game'
+import { useSettingsStore } from '~/stores/settings'
 
 const gameStore = useGameStore()
+const settingsStore = useSettingsStore()
 
 // Game setup state
 const showSetup = ref(true)
@@ -29,13 +31,26 @@ const difficultyOptions = [
   { value: 'expert', label: '专家' },
 ]
 
-// Check for saved game on mount
+// Check for saved game on mount and load settings
 onMounted(() => {
+  // Load user settings
+  settingsStore.loadSettings()
+  selectedSize.value = settingsStore.defaultBoardSize
+  selectedDifficulty.value = settingsStore.defaultDifficulty
+  
+  // Check for saved game
   const hasSavedGame = gameStore.loadSavedGame()
   if (hasSavedGame) {
     showResumePrompt.value = true
     showSetup.value = false
   }
+  
+  // Add keyboard listener
+  window.addEventListener('keydown', handleKeydown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
 })
 
 // Watch for game completion
@@ -72,6 +87,48 @@ function handleDropNumber(row: number, col: number, value: number) {
 
 function handleClear() {
   gameStore.clearCell()
+}
+
+// Keyboard navigation
+function handleKeydown(event: KeyboardEvent) {
+  if (!gameStore.isPlaying || !gameStore.selectedCell) return
+  
+  const { row, col } = gameStore.selectedCell
+  const size = gameStore.boardSize || 9
+  
+  switch (event.key) {
+    case 'ArrowUp':
+      event.preventDefault()
+      if (row > 0) gameStore.selectCell(row - 1, col)
+      break
+    case 'ArrowDown':
+      event.preventDefault()
+      if (row < size - 1) gameStore.selectCell(row + 1, col)
+      break
+    case 'ArrowLeft':
+      event.preventDefault()
+      if (col > 0) gameStore.selectCell(row, col - 1)
+      break
+    case 'ArrowRight':
+      event.preventDefault()
+      if (col < size - 1) gameStore.selectCell(row, col + 1)
+      break
+    case '1': case '2': case '3': case '4': case '5':
+    case '6': case '7': case '8': case '9':
+      event.preventDefault()
+      const num = parseInt(event.key)
+      if (num <= size) gameStore.placeNumber(num)
+      break
+    case 'Backspace':
+    case 'Delete':
+      event.preventDefault()
+      gameStore.clearCell()
+      break
+    case 'Escape':
+      event.preventDefault()
+      gameStore.selectCell(-1, -1) // Deselect
+      break
+  }
 }
 
 function handlePause() {
@@ -117,6 +174,16 @@ function startNewInsteadOfResume() {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
             游戏记录
+          </NuxtLink>
+          <NuxtLink 
+            to="/settings" 
+            class="flex items-center gap-1 text-sm text-indigo-600 hover:text-indigo-700 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            设置
           </NuxtLink>
         </div>
         <h1 class="text-3xl sm:text-4xl font-bold text-indigo-600 mb-2">
