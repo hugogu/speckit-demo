@@ -1,50 +1,57 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# 数独学习游戏 Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. 教育优先
+游戏设计以教育价值为核心，确保学习体验优于娱乐性。所有功能必须有助于数独技能的培养，界面设计应清晰直观，避免干扰学习的复杂元素。
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. 可访问性与包容性
+确保所有用户群体都能无障碍使用，包括不同年龄层、技能水平和设备类型的用户。提供多种交互方式（点击、拖拽）、响应式设计和清晰的视觉反馈。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. 渐进式学习
+支持从简单到复杂的渐进式学习路径，提供多种难度级别和不同尺寸的棋盘。用户应能根据自己的进度选择合适的挑战。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. 即时反馈
+在用户操作时提供即时、明确的反馈。错误输入应有视觉提示并能自动纠正，正确完成游戏时应有庆祝反馈。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. 学习进度追踪
+记录用户的学习进度和游戏历史，提供统计数据帮助用户了解自己的进步。数据应持久化存储并可导出。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## 技术约束
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### 前端技术栈
+- 框架：Vue 3 + Nuxt 3
+- 语言：TypeScript
+- 状态管理：Pinia
+- 样式：Tailwind CSS
+- 构建工具：Vite
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### 响应式设计
+- 支持桌面端和移动端
+- 触摸目标最小44px
+- 打印样式优化
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### 测试要求
+- 单元测试覆盖率>80%
+- E2E测试覆盖核心用户流程
+- 响应式设计测试
+
+## 开发工作流
+
+### 代码质量
+- ESLint + Prettier 代码规范
+- 提交前必须通过所有测试
+- 组件化开发，可复用性优先
+
+### 版本控制
+- Git 工作流
+- 语义化版本控制
+- 提交信息遵循 conventional commits 规范
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+宪法优先于所有其他开发实践。任何修改都需要文档说明、团队批准和迁移计划。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+所有 Pull Request 和代码审查必须验证宪法合规性。复杂性必须有合理依据。
+
+**Version**: 1.0.0 | **Ratified**: 2026-01-30 | **Last Amended**: 2026-01-30
