@@ -1,0 +1,29 @@
+{
+  "name": "sudoku-kids",
+  "version": "1.0.0",
+  "description": "A Sudoku learning game for elementary students",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "pinia": "^2.1.7",
+    "jspdf": "^2.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.6",
+    "vitest": "^1.4.0",
+    "@vue/test-utils": "^2.4.5",
+    "playwright": "^1.42.1",
+    "@playwright/test": "^1.42.1"
+  }
+}
