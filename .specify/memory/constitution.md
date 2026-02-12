@@ -1,50 +1,99 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+  Sync Impact Report
+  - Version change: 0.0.0 → 1.0.0
+  - Added principles: 5 new principles defined
+  - New sections: Technology Stack, Development Workflow
+  - Templates requiring updates: plan-template.md, spec-template.md, tasks-template.md
+  - Follow-up TODOs: None
+-->
 
-## Core Principles
+# SudokuKids 项目章程
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+## 核心原则
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### I. 儿童友好优先 (NON-NEGOTIABLE)
+界面设计必须以小学生认知水平为基准：
+- 色彩明亮但不刺眼，使用柔和配色方案
+- 按钮和操作区域足够大，便于儿童点击
+- 文字使用大字号，语言简洁易懂
+- 避免复杂菜单，操作步骤不超过3步
+- 提供视觉和听觉反馈，增强互动感
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. 跨设备自适应
+支持PC Web端和移动端无缝体验：
+- 响应式布局，适配从手机到平板到桌面屏幕
+- 触摸和鼠标操作均流畅支持
+- 移动端优先的交互设计
+- 离线功能支持，弱网环境下可用
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### III. 即时反馈机制
+游戏过程中提供实时状态反馈：
+- 填入数字后立即判断对错，错误数字自动跳回
+- 所有数字正确完成后立即显示胜利提示
+- 实时显示游戏计时计数牌
+- 记录并显示填错次数统计
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### IV. 多模态交互支持
+同时支持多种操作方式：
+- 点击选择数字后点击格子填入
+- 拖拽数字到目标格子
+- 键盘输入支持（桌面端）
+- 适配触屏手势操作
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### V. 学习记录可追溯
+完整记录学习过程数据：
+- 每次游戏保存：排面配置、用时、填错次数
+- 历史记录本地持久化存储
+- 支持打印多个随机生成的游戏用于线下练习
+- 游戏数据可导出或分享
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## 技术栈规范
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### 前端框架
+- **Vue 3** + **Nuxt 3**：服务端渲染支持，SEO友好
+- **TypeScript**：全项目类型安全
+- **Pinia**：状态管理
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### 样式与UI
+- **TailwindCSS**：原子化CSS，响应式设计
+- 移动端优先的断点设计
+- 打印样式独立优化
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+### 核心功能库
+- 数独生成算法：内置，支持多种难度和面板尺寸
+- 拖拽交互：原生HTML5 Drag & Drop + Touch事件
+- 本地存储：localStorage / IndexedDB
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+## 开发流程规范
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### 代码质量
+- ESLint + Prettier 统一代码风格
+- 组件单元测试覆盖核心逻辑
+- Playwright E2E测试覆盖关键用户流程
+
+### 响应式实现要求
+- 所有UI组件必须通过移动端和桌面端测试
+- 触摸目标最小尺寸 44x44px
+- 禁用元素在移动端保持可见但提示原因
+
+### 打印功能规范
+- 打印样式独立于屏幕样式
+- 支持单页打印多个游戏排面
+- 打印输出包含游戏规则说明（可选）
+
+## 治理规则
+
+本章程作为项目开发的最高准则，所有功能实现和设计决策必须与之保持一致。
+
+### 修订流程
+1. 提出修订建议，说明理由和影响范围
+2. 评估对现有代码的影响和迁移成本
+3. 更新相关模板文件保持一致性
+4. 版本号按语义化版本规范递增
+
+### 合规检查
+- 每个PR必须通过章程合规自检
+- 新增功能需注明遵循的具体原则
+- 复杂实现必须有对应的设计理由说明
+
+**Version**: 1.0.0 | **Ratified**: 2025-02-12 | **Last Amended**: 2025-02-12
