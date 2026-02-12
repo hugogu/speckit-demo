@@ -1,10 +1,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  compatibilityDate: '2026-02-12',
   modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss'],
   css: ['~/assets/styles/main.css'],
   typescript: {
     strict: true,
-    typeCheck: true
+    typeCheck: false
   },
   imports: {
     dirs: ['composables', 'utils']

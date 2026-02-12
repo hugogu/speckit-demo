@@ -55,6 +55,8 @@
 </template>
 
 <script setup lang="ts">
+import BaseCard from '~/components/ui/BaseCard.vue';
+import BaseButton from '~/components/ui/BaseButton.vue';
 import type { Difficulty, BoardSize } from '~/types/sudoku';
 
 const gameStore = useGameStore();

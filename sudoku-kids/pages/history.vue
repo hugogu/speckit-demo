@@ -62,6 +62,8 @@
 </template>
 
 <script setup lang="ts">
+import BaseButton from '~/components/ui/BaseButton.vue';
+import BaseCard from '~/components/ui/BaseCard.vue';
 import type { Difficulty } from '~/types/sudoku';
 
 const historyStore = useHistoryStore();

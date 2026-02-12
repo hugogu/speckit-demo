@@ -39,6 +39,9 @@
 </template>
 
 <script setup lang="ts">
+import BaseButton from '~/components/ui/BaseButton.vue';
+import BaseCard from '~/components/ui/BaseCard.vue';
+
 const route = useRoute();
 const gameId = route.params.id as string;
 

@@ -39,6 +39,9 @@
 </template>
 
 <script setup lang="ts">
+import SudokuBoard from '~/components/game/SudokuBoard.vue';
+import NumberPad from '~/components/game/NumberPad.vue';
+import Timer from '~/components/game/Timer.vue';
 import type { Cell } from '~/types/sudoku';
 
 const gameStore = useGameStore();
