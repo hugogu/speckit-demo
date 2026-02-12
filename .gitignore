@@ -38,3 +38,20 @@ coverage/
 
 # Speckit local settings (optional - uncomment if needed)
 # .windsurf/settings.json
+.claude/skills/
+.claude/commands/
+.cursor/skills/
+.cursor/commands/
+.windsurf/skills/
+.windsurf/workflows/
+.trae/skills/
+.opencode/skills/
+.opencode/command/
+.github/agents/
+.github/prompts/
+.github/skills/
+.specify/scripts/
+.specify/templates/
+.claude/settings.local.json
+.cursor/settings.local.json
+.windsurf/settings.local.json
