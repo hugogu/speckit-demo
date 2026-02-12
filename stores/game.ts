@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia'
-import type { Board, BoardSize, Difficulty, GameStatus } from '~/types'
+import type { Board, BoardSize, Difficulty, GameStatus, GameRecord } from '~/types'
 import { createPuzzle } from '~/composables/useSudokuGenerator'
 import { isValidPlacement, isBoardComplete } from '~/composables/useSudokuValidator'
 import { STORAGE_KEYS } from '~/types'
 import { loadFromStorage, saveToStorage } from '~/utils/storage'
+import { useHistoryStore } from '~/stores/history'
 
 export const useGameStore = defineStore('game', {
   state: () => ({
@@ -208,6 +209,9 @@ export const useGameStore = defineStore('game', {
       this.status = 'completed'
       this.endTime = Date.now()
       
+      // Create game record
+      this.createGameRecord()
+      
       // Save game
       this.saveGame()
     },
@@ -262,6 +266,60 @@ export const useGameStore = defineStore('game', {
         console.error('Error loading saved game:', error)
         return false
       }
+    },
+    
+    createGameRecord() {
+      if (!this.board || !this.boardSize || !this.difficulty || !this.startTime || !this.endTime) return
+      
+      // Create initial board (only prefilled cells)
+      const initialBoard: number[][] = []
+      for (let row = 0; row < this.board.size; row++) {
+        const rowValues: number[] = []
+        for (let col = 0; col < this.board.size; col++) {
+          const cell = this.board.cells[row][col]
+          rowValues.push(cell.isPrefilled ? cell.solution : 0)
+        }
+        initialBoard.push(rowValues)
+      }
+      
+      // Create final board
+      const finalBoard: number[][] = []
+      for (let row = 0; row < this.board.size; row++) {
+        const rowValues: number[] = []
+        for (let col = 0; col < this.board.size; col++) {
+          rowValues.push(this.board.cells[row][col].value || 0)
+        }
+        finalBoard.push(rowValues)
+      }
+      
+      // Create solution board
+      const solution: number[][] = []
+      for (let row = 0; row < this.board.size; row++) {
+        const rowValues: number[] = []
+        for (let col = 0; col < this.board.size; col++) {
+          rowValues.push(this.board.cells[row][col].solution)
+        }
+        solution.push(rowValues)
+      }
+      
+      // Create game record
+      const record: GameRecord = {
+        id: this.id,
+        boardSize: this.boardSize,
+        difficulty: this.difficulty,
+        initialBoard,
+        finalBoard,
+        solution,
+        duration: Math.floor((this.endTime - this.startTime) / 1000),
+        errorCount: this.errorCount,
+        moveCount: this.moveCount,
+        completedAt: this.endTime,
+        isCompleted: true,
+      }
+      
+      // Save to history store
+      const historyStore = useHistoryStore()
+      historyStore.addRecord(record)
     },
   },
 })
