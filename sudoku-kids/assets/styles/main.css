@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+body {
+  @apply bg-gray-50 text-gray-900;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Component Styles */
+.sudoku-cell {
+  @apply min-w-12 min-h-12 flex items-center justify-center text-2xl font-bold border border-gray-300 cursor-pointer transition-colors duration-200;
+  touch-action: manipulation;
+}
+
+.sudoku-cell:hover:not(.fixed) {
+  @apply bg-blue-50;
+}
+
+.sudoku-cell.selected {
+  @apply bg-blue-100 ring-2 ring-blue-500;
+}
+
+.sudoku-cell.fixed {
+  @apply bg-gray-100 text-gray-700 cursor-not-allowed;
+}
+
+.sudoku-cell.correct {
+  @apply text-green-700 bg-green-50;
+}
+
+.sudoku-cell.incorrect {
+  @apply text-red-700 bg-red-50;
+}
+
+.number-button {
+  @apply min-w-12 min-h-12 flex items-center justify-center text-2xl font-bold rounded-lg border-2 border-blue-500 bg-white hover:bg-blue-50 active:bg-blue-100 transition-colors duration-200 cursor-pointer;
+  touch-action: manipulation;
+}
+
+.number-button:hover {
+  @apply bg-blue-50;
+}
+
+.number-button.selected {
+  @apply bg-blue-500 text-white;
+}
+
+.timer-display {
+  @apply text-3xl font-mono font-bold text-gray-800;
+}
+
+/* Animations */
+@keyframes bounce-short {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-short {
+  animation: bounce-short 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-in-out;
+}
+
+/* Print Media Query */
+@media print {
+  body {
+    @apply bg-white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .sudoku-cell {
+    @apply border-2 border-black;
+  }
+
+  .print-puzzle {
+    page-break-inside: avoid;
+  }
+}
+
+/* Responsive Grid */
+@media (min-width: 375px) {
+  .sudoku-grid-4 {
+    @apply grid-cols-4;
+  }
+  .sudoku-grid-6 {
+    @apply grid-cols-6;
+  }
+  .sudoku-grid-9 {
+    @apply grid-cols-9;
+  }
+}
+
+@media (min-width: 768px) {
+  .sudoku-grid-4 {
+    @apply grid-cols-4 gap-2;
+  }
+  .sudoku-grid-6 {
+    @apply grid-cols-6 gap-2;
+  }
+  .sudoku-grid-9 {
+    @apply grid-cols-9 gap-2;
+  }
+}
+
+/* Print Layout */
+.print-grid-1 {
+  @apply grid-cols-1;
+}
+
+.print-grid-2 {
+  @apply grid-cols-2;
+}
+
+.print-grid-3 {
+  @apply grid-cols-3;
+}
+
+.print-grid-4 {
+  @apply grid-cols-2;
+}
+
+.print-grid-5 {
+  @apply grid-cols-3;
+}
+
+.print-grid-6 {
+  @apply grid-cols-3;
+}

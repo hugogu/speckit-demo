@@ -1,0 +1,40 @@
+{
+  "name": "sudoku-kids",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "test": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.10.1",
+    "@pinia/nuxt": "^0.5.1",
+    "idb-keyval": "^6.2.1",
+    "nuxt": "latest",
+    "pinia": "^2.1.7",
+    "qrcode": "^1.5.3",
+    "uuid": "^9.0.1",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^0.3.0",
+    "@playwright/test": "^1.40.0",
+    "@vue/test-utils": "^2.4.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "happy-dom": "^13.0.0",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
+  }
+}
